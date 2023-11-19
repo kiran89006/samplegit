@@ -1,11 +1,15 @@
 var userDAO = require('../dao/userDAO')
-function saveUserService() {
-    console.log('saveUserService')
-    userDAO.saveUserDAO();
+async function saveUserService(data) {
+    const result = await userDAO.saveUserDAO(data);
+    return result;
 }
 
-function getUserService() {
-
+async function getUserService() {
+    const result = await userDAO.getUserDAO();
+    result.forEach((obj) => {
+        delete obj.pwd
+    })
+    return result;
 }
 
 
