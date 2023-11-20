@@ -35,5 +35,19 @@ router.post("/login", async function (req, res, next) {
     res.send(result)
 })
 
+router.put("/update-user", async function (req, res, next) {
+    const id = req.query.id;
+    const data = req.body.data;
+    const result = await userService.updateUserService(id, data)
+    res.send(result)
+})
+router.delete("/delete-user/:id", async function (req, res, next) {
+    const id = req.params.id;
+    const result = await userService.deleteUserService(id)
+    res.send(result)
+})
+
+
+
 module.exports = router;
 

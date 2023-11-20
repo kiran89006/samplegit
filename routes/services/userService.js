@@ -16,9 +16,19 @@ async function authService(data) {
     const result = await userDAO.authDAO(data);
     return result;
 }
+async function updateUserService(id, data) {
+    const result = await userDAO.updateUserDao(id, data);
+    return result;
+}
+async function deleteUserService(id) {
+    const result = await userDAO.deleteUserDao(id);
+    return result;
+}
 
 module.exports = {
     saveUserService,
     getUserService,
-    authService
+    authService,
+    updateUserService,
+    deleteUserService
 }
