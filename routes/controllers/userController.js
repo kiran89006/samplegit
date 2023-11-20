@@ -29,5 +29,11 @@ router.get('/get-users', async function (req, res, next) {
     res.send(result);
 })
 
+router.post("/login", async function (req, res, next) {
+    const data = req.body.data
+    const result = await userService.authService(data)
+    res.send(result)
+})
+
 module.exports = router;
 

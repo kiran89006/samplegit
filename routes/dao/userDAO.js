@@ -18,8 +18,16 @@ async function getUserDAO() {
     return result;
 }
 
+async function authDAO(data) {
+    const db = await getDBConn();
+    const collection = db.collection("users");
+    const result = await collection.find(data).toArray();
+    return result;
+}
+
 
 module.exports = {
     saveUserDAO,
-    getUserDAO
+    getUserDAO,
+    authDAO
 }

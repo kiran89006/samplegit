@@ -12,8 +12,13 @@ async function getUserService() {
     return result;
 }
 
+async function authService(data) {
+    const result = await userDAO.authDAO(data);
+    return result;
+}
 
 module.exports = {
     saveUserService,
-    getUserService
+    getUserService,
+    authService
 }
